@@ -53,7 +53,7 @@ const LoginForm: React.FC<LoginFormProps> = (
         onChange={(e) => setPassword(e.target.value)}
       />
       <br/>
-      <button onClick={handleLogin}>{isLoading ? '...Loding' : 'Login'}</button>
+      <button onClick={handleLogin}>{isLoading ? '...Loading' : 'Login'}</button>
       {token && (<div className='success'>
         token: {token}
       </div>)
