@@ -26,10 +26,14 @@ const LoginForm: React.FC<LoginFormProps> = (
 
   const handleLogin = async () => {
     // console.log('handleLogin', username, password);
-    dispatch(loginAction({
-      email: username,
-      password: password})
-      );
+    try{
+      dispatch(loginAction({
+        email: username,
+        password: password})
+        );
+      }catch(error){
+        console.log(error);
+      }
     
     // dispatch(login({username, password}))
     //   .unwrap()

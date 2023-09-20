@@ -17,7 +17,6 @@ interface User {
   
   // Add more user fields as needed
 }
-
 const initialState: AuthState = {
   user: null,
   token: null,
@@ -38,12 +37,17 @@ const authSlice = createSlice({
       state.isLoading = true;
     })
     builder.addCase(loginAction.fulfilled, (state, action) => {
+      	// console.log("🚀 ~ file: authSlice.ts:41 ~ builder.addCase ~ state:", state)
+      	// console.log("🚀 ~ file: authSlice.ts:41 ~ builder.addCase ~ action:", action)
       	state.isLoading = false
         state.isError = null;
         state.token = action.payload.token;
+        // console.log("🚀 ~ file: authSlice.ts:45 ~ builder.addCase ~ action.payload.token:", action.payload.token)
     	}
     )
     builder.addCase(loginAction.rejected, (state, action) => {
+      // console.log("🚀 ~ file: authSlice.ts:50 ~ builder.addCase ~ action:", action)
+      // console.log("🚀 ~ file: authSlice.ts:50 ~ builder.addCase ~ state:", state)
       state.isLoading = false;
       state.token = null;
       state.isError= action.error.message;
